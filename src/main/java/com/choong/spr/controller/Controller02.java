@@ -19,20 +19,20 @@ public class Controller02 {
 	public String addReply(ReplyDto reply) {
 		boolean success = service.addReply(reply);
 		
-		return "redirect:/ex15/board/" + reply.getBoardId();
+		return "redirect:/project/board/" + reply.getBoardId();
 	}
 	
 	@PostMapping("reply/remove")
 	public String removeReply(ReplyDto reply) {
 		boolean success = service.removeReply(reply.getId());
 		
-		return "redirect:/ex15/board/" + reply.getBoardId();
+		return "redirect:/project/board/" + reply.getBoardId();
 	}
 	
 	@PostMapping("reply/modify")
 	public String modifyReply(ReplyDto reply) {
 		boolean success = service.modifyReply(reply);
 		
-		return "redirect:/ex15/board/" + reply.getBoardId();
+		return "redirect:/project/board/" + reply.getBoardId();
 	}
 }

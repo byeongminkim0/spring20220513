@@ -17,10 +17,17 @@
 	<c:url value="/project/board/write" var="writeLink"></c:url>
 	
 	<form action="${writeLink }" method="post">
-		제목 : <input type="text" name="title" value="새 제목" /> <br />
-		본문 : <textarea name="body" id="" cols="30" rows="10">새 글</textarea>
+		<div>
+			<label class="form-lable" for="input1">TITLE</label>
+			<input class="form-control" type="text" name="title" value="새 제목" required id="input1" />
+		</div>
 		
-		<button>등록</button>
+		<div>
+			<label class="form-lable" for="textarea1">MAIN TEXT</label>
+			<textarea class="form-control" name="body" id="textarea1" cols="30" rows="10">새 글</textarea>
+		</div>
+		
+		<button class="btn btn-primary">WRITE</button>
 	</form>
 </body>
 </html>

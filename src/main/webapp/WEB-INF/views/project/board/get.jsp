@@ -12,37 +12,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${board.id }번 게시물</h1>
+	<h1>${board.id }. BOARD</h1>
 	
 	
 	<form action="${appRoot }/project/board/modify" method="post">
-	<input type="hidden" name="id" value="${board.id }" />
-	
-	제목 : <input type="text" value="${board.title }" name="title" /> <br />
-	
-	본문 : <textarea cols="30" rows="10" name="body" >${board.body }</textarea> <br />
-	
-	작성일시 : <input type="datetime-local" value="${board.inserted }" readonly /> <br />
-	
-	<button>수정</button>
+		<input type="hidden" name="id" value="${board.id }" />
+		
+		<div>
+			<label class="form-label" for="input1">TITLE</label>
+			<input class="form-control" type="text" name="title" value="${board.title }"/>
+		</div>
+		
+		<div>
+			<label class="form-label" for="textarea1">MAIN TEXT</label>
+			<textarea class="form-control" name="body" id="textarea1"
+					cols="30" rows="10" >${board.body }</textarea>
+		</div>
+		
+		<div>
+			<label for="input2" class="form-label">INSERTED</label>
+			<input class="form-control" type="datetime-local" value="${board.inserted }" readonly/>
+		</div> 
+		
+		<button class="btn btn-primary">MODIFY</button>
 	</form>
 	
 	<c:url value="/project/board/remove" var="removeLink" />
 	<form action="${removeLink }" method="post">
 		<input type="hidden" name="id" value="${board.id }"/>
-		<button>삭제</button>
+		<button class="btn btn-danger">REMOVE</button>
 	</form>
 	
 	<hr />
+	<hr />
 	
-	<h1>댓글</h1>
+	<h2>COMMENT</h2>
 	
 	<c:url value="/project2/reply/add" var="replyAddLink"></c:url>
 	<form action="${replyAddLink }" method="post">
 		<input type="hidden" name="boardId" value="${board.id }" />
-		댓글 : <input type="text" name="content" size="50" />
+		COMMENT : <input class="form-control" type="text" name="content" size="50" />
 		
-		<button>쓰기</button>
+		<button class="btn btn-outline-primary">WRITE</button>
 	</form>
 	
 	<hr />
@@ -57,15 +68,15 @@
 				<form action="${replyModifyLink }" method="post">
 					<input type="hidden" value="${reply.id }" name="id" />
 					<input type="hidden" name="boardId" value="${board.id }" />
-					<input type="text" value="${reply.content }" name="content" />
-					<button>수정</button>
+					<input class="form-control" type="text" value="${reply.content }" name="content" />
+					<button class="btn btn-primary btn-sm">MODIFY</button>
 				</form>
 				
 				<c:url value="/project2/reply/remove" var="replyRemoveLink"></c:url>
 				<form action="${replyRemoveLink }" method="post">
 					<input type="hidden" name="id" value="${reply.id }" />
 					<input type="hidden" name="boardId" value="${board.id }" />
-					<button>삭제</button>
+					<button class="btn btn-danger btn-sm">REMOVE</button>
 				</form>
 			</div>
 			

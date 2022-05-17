@@ -14,16 +14,16 @@
 <body>
 	<c:url value="/project/board/write" var="writeLink"></c:url>
 
-	<h1><a href="${writeLink }">글 쓰기</a></h1>
+	<h1><a class="btn btn-primary btn-lg" href="${writeLink }" role="button">NEW WRITE!</a></h1>
 
-	<h1>글 목록</h1>
+	<h1>BOARD LIST</h1>
 	
-	<table class="table">
+	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>title</th>
-				<th>inserted</th>
+				<th>ID</th>
+				<th>TITLE</th>
+				<th>INSERTED</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +35,7 @@
 					<c:url value="/project/board/${board.id }" var="link"></c:url>
 					
 					<a href="${link }">
-					${board.title }
+						${board.title }
 					</a>
 					
 					<c:if test="${board.numOfReply > 0 }">
