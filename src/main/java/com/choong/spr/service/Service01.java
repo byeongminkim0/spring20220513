@@ -58,7 +58,7 @@ public class Service01 {
 	}
 
 	public boolean addBoard(BoardDto board) {
-		board.setInserted(LocalDateTime.now());
+//		board.setInserted(LocalDateTime.now());
 		
 		int cnt = mapper.insertBoard(board);
 		

@@ -16,7 +16,7 @@ public class Service02 {
 	private Mapper02 mapper;
 	
 	public boolean addReply(ReplyDto reply) {
-		reply.setInserted(LocalDateTime.now());
+//		reply.setInserted(LocalDateTime.now());
 		
 		int cnt = mapper.insertReply(reply);
 		
